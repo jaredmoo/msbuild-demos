@@ -23,8 +23,6 @@
     Please edit the above to write "Hello, world!", then run command lines:
     > msbuild
     > msbuild /t:WriteGreeting
-
-    What does this write out? Why?
   -->
 
 </Project>
