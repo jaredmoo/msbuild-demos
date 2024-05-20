@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk"> <!-- note: now we are using the standard SDK -->
+
+  <!--
+    Here we are learning about:
+    1. Microsoft.NET.Sdk
+    2. Output folders
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <!-- 
+    Run command lines:
+    > msbuild /t:"Restore;Build"
+
+    What folders are created? What do these folders mean?
+  -->
+
+</Project>
+
