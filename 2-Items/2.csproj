@@ -1,0 +1,28 @@
+﻿<Project> <!-- note: no sdk -->
+
+  <!--
+    Here we are learning about:
+    1. Defining items
+    2. Using items and metadata
+  -->
+
+  <ItemGroup>
+    <MyItem Include="" />
+  </ItemGroup>
+
+  <Target Name="WriteFileList">
+    <Message Importance="High" Text="List of files: @(MyItem)" />
+    <Message Importance="High" Text="File: %(MyItem.Filename)" />
+    <Message Importance="High" Text="File path: %(MyItem.FullPath)" />
+  </Target>
+
+  <!-- 
+    Please edit the above so that it writes out file names and paths for all text files in this folder, then run command lines:
+    > msbuild
+    > msbuild /t:WriteFileList
+
+    What does this write out? Why?
+  -->
+
+</Project>
+

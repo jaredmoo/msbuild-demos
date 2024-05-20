@@ -1,0 +1,31 @@
+﻿<Project> <!-- note: no sdk -->
+
+  <!--
+    Here we are learning about:
+    1. Defining a property
+    2. Using a property and expressions
+    3. Defining a target
+    4. Using a task
+  -->
+
+  <PropertyGroup>
+    <Greeting></Greeting>
+    <Recipient></Recipient>
+    <FullGreeting>$(Greeting), $(Recipient)!</FullGreeting>
+  </PropertyGroup>
+
+  <Target Name="WriteGreeting">
+    <Message Importance="High" Text="$(FullGreeting)" />
+    <Message Importance="High" Text="$(FullGreeting.ToUpper())" />
+  </Target>
+
+  <!--
+    Please edit the above to write "Hello, world!", then run command lines:
+    > msbuild
+    > msbuild /t:WriteGreeting
+
+    What does this write out? Why?
+  -->
+
+</Project>
+
