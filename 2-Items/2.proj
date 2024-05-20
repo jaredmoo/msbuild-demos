@@ -19,7 +19,6 @@
   <!-- 
     Please edit the above so that it writes out file names and paths for all text files in this folder, then run command lines:
     > msbuild
-    > msbuild /t:WriteFileList
 
     What does this write out? Why?
   -->
