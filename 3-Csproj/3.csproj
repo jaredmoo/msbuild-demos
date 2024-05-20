@@ -4,6 +4,7 @@
     Here we are learning about:
     1. Microsoft.NET.Sdk
     2. Output folders
+    3. Important targets you should know
   -->
 
   <PropertyGroup>
@@ -12,9 +13,20 @@
 
   <!-- 
     Run command lines:
-    > msbuild /t:"Restore;Build"
+    > msbuild /t:Restore
+    > msbuild
 
     What folders are created? What do these folders mean?
+
+    Important targets you should know:
+      Clean                               - deletes output
+      Build                               - depends on the following
+       -> ResolveProjectReferences        - ensures that project references are built
+       -> CoreCompile                     - runs the compiler
+       -> GetCopyToOutputDirectoryItems   - determines what files to copy to output
+       -> CopyFilesToOutputDirectory      - copies files to output
+      Pack                                - creates nuget package
+      Publish                             - creates a 'deployable' package
   -->
 
 </Project>
