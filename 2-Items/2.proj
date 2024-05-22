@@ -14,6 +14,7 @@
     <Message Importance="High" Text="List of files: @(MyItem)" />
     <Message Importance="High" Text="File: %(MyItem.Filename)" />
     <Message Importance="High" Text="File path: %(MyItem.FullPath)" />
+    <Message Importance="High" Text="File flavor: %(MyItem.Filename): %(MyItem.Flavor)" />
   </Target>
 
   <!-- 
@@ -21,6 +22,8 @@
     > msbuild
 
     What does this write out? Why?
+
+    Now, edit the above by adding a custom metadata named "Flavor" to these items, so that the above target also writes out your favourite flavor.
   -->
 
 </Project>

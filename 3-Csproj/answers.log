@@ -1,0 +1,2 @@
+obj -> Intermediate output folder. This is the build's working directory.
+bin -> Output folder. This is the result of the build.

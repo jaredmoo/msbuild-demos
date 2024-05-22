@@ -1,0 +1,3 @@
+    <MyItem Include="*.txt">
+      <Flavor>Strawberry</Flavor>
+    </MyItem>

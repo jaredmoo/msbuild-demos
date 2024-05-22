@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk"> <!-- note: now we are using the standard SDK -->
+
+  <!--
+    Here we are learning about:
+    1. How to make targets incremental
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <Target Name="GenerateSourceCode" BeforeTargets="">
+    <Copy SourceFiles="Program.txt" DestinationFiles="Program.cs" />
+  </Target>
+
+  <!-- 
+    Please edit the above so that our custom "GenerateSourceCode" target is executed before "Build" target.
+    
+    Then run command lines:
+    > msbuild /t:Restore
+    > msbuild /bl
+
+    Now run a second time
+    > msbuild /bl
+    
+    What happened? Why is this bad? How can we improve our custom target to prevent this? Then, how can we avoid duplication
+    by using items and item metadata?
+  -->
+
+</Project>
+

@@ -29,8 +29,9 @@
   </ItemGroup>
 
   <!-- 
-    Please edit the above so that it writes out file names and paths for all text files in this folder, then run command lines:
-    > msbuild /t:"Restore;Build"
+    Run command lines:
+    > msbuild /t:Restore
+    > msbuild /bl
 
     What files are copied to bin\Debug\net8.0 ?
   -->
@@ -42,10 +43,7 @@
   <!--
     What files are written out in the above message? Any surprises?
 
-    Run command line:
-    > msbuild /bl
-
-    Then open the binlog in MSBuild structured Log Viewer.
+    After building with /bl, open the binlog in MSBuild structured Log Viewer.
 
     Can you find the target which assigns the TargetPath to a.txt?
   -->
