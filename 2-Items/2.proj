@@ -12,9 +12,13 @@
 
   <Target Name="WriteFileList">
     <Message Importance="High" Text="List of files: @(MyItem)" />
-    <Message Importance="High" Text="File: %(MyItem.Filename)" />
-    <Message Importance="High" Text="File path: %(MyItem.FullPath)" />
-    <Message Importance="High" Text="File flavor: %(MyItem.Filename): %(MyItem.Flavor)" />
+    <Message Importance="High" Text="List of files, but with a different extension: @(MyItem -> '%(FileName).abc')" />
+
+    <Message Importance="High" Text="Single file: %(MyItem.Identity)" />
+    <Message Importance="High" Text="Single file, but with a different extension: %(MyItem.Filename).abc" />
+    <Message Importance="High" Text="Single file path: %(MyItem.FullPath)" />
+
+    <Message Importance="High" Text="Single file flavor: %(MyItem.Filename): %(MyItem.Flavor)" />
   </Target>
 
   <!-- 

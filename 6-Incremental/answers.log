@@ -1,0 +1,43 @@
+Level 1:
+
+  <Target Name="GenerateSourceCode"
+    BeforeTargets="Build"
+    Inputs="Program.txt"
+    Outputs="Program.cs">
+    <Copy SourceFiles="Program.txt" DestinationFiles="Program.cs" />
+  </Target>
+
+Level 2:
+
+  <ItemGroup>
+    <MyItem Include="Program.txt"/>
+  </ItemGroup>
+
+  <Target Name="GenerateSourceCode"
+    BeforeTargets="Build"
+    Inputs="@(MyItem)"
+    Outputs="@(MyItem -> '%(Filename).cs')">
+    <Copy SourceFiles="@(MyItem)" DestinationFiles="@(MyItem -> '%(Filename).cs')" />
+  </Target>
+
+Level 3:
+
+  <ItemGroup>
+    <MyItem Include="Program.txt"/>
+  </ItemGroup>
+
+  <Target Name="_DetermineMyItemPaths">
+    <CreateItem Include="@(MyItem)" AdditionalMetadata="TargetPath=%(FileName).cs">
+        <Output
+            TaskParameter="Include"
+            ItemName="MyItemWithTargetPath"/>
+    </CreateItem>
+  </Target>
+
+  <Target Name="GenerateSourceCode"
+    BeforeTargets="Build"
+    DependsOnTargets="_DetermineMyItemPaths"
+    Inputs="@(MyItemWithTargetPath)"
+    Outputs="%(MyItemWithTargetPath.TargetPath)">
+    <Copy SourceFiles="@(MyItemWithTargetPath)" DestinationFiles="%(MyItemWithTargetPath.TargetPath)" />
+  </Target>
