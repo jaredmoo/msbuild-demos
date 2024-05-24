@@ -1,9 +1,0 @@
-dll's from project references - search for "4.dll", and look under the hierarchy of "5.csproj"
-- Target "ResolveProjectReferences" populates it into item "_ResolvedProjectReferencePaths"
-- Then, target "ResolveAssemblyReferences" populates it from "_ResolvedProjectReferencePaths" into "ReferenceCopyLocalPaths"
-- Then, target "_CopyFilesMarkedCopyLocal" does the copying
-
-Content and None from project references - search for "a.txt", and look under the hierarchy of "5.csproj"
-- Target "GetCopyToOutputDirectoryItems" populates it into item "_TransitiveItemsToCopyToOutputDirectory"
-
-Copying files the second time is skipped because Inputs & Outputs are declared.

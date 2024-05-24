@@ -1,0 +1,18 @@
+  <ItemGroup>
+    <!-- Content-->
+    <ContentWithTargetPath Include="a.txt">
+      <TargetPath>x\a.txt</TargetPath>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <Target Name="MyCustomCopy" AfterTargets="Build">
+    <Copy SourceFiles="b.txt" DestinationFolder="$(OutputPath)\x" />
+  </Target>
+
+  <Target Name="MyCustomCopy"
+    BeforeTargets=""
+    AfterTargets="Build"
+    DependsOnTargets="">
+    <Copy SourceFiles="b.txt" DestinationFolder="$(OutputPath)" />
+  </Target>

@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk"> <!-- note: now we are using the standard SDK -->
+
+  <!--
+    Here we are learning about:
+    1. Attaching custom targets
+    1. Item metadata
+    2. Important item types you should know
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Content-->
+    <Content Include="5a.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <Target Name="MyCustomCopy"
+    BeforeTargets=""
+    AfterTargets=""
+    DependsOnTargets="">
+    <Copy SourceFiles="5b.txt" DestinationFolder="$(OutputPath)" />
+  </Target>
+
+  <!--
+    Run command lines:
+    > msbuild /t:Restore
+    > msbuild /bl
+
+    Edit the "MyCustomCopy" target so that it is automatically executed as part of the build. Then rerun
+    > msbuild /bl
+
+    What files are copied to bin\Debug\net8.0 ?
+
+    How can I change the above so copy 5a.txt and 5b.txt to a *subfolder* of the output?
+
+    There are 2 techniques being used here (Content item, and using Copy task). In example 5, we will see which technique is better :)
+  -->
+
+</Project>
+

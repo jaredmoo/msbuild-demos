@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk"> <!-- note: now we are using the standard SDK -->
+
+  <!--
+    Here we are learning about:
+    1. Project references
+    2. Transitive copying of project output
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\6-ProjectReference\6.csproj" />
+  </ItemGroup>
+
+  <!-- 
+    Run command lines:
+    > msbuild /t:Restore
+    > msbuild /bl
+
+    You can see that transitive dependencies work as expected.
+  -->
+
+</Project>
+

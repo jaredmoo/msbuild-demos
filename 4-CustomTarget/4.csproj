@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk"> <!-- note: now we are using the standard SDK -->
+
+  <!--
+    Here we are learning about:
+    1. How to make targets incremental
+  -->
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <Target Name="ZipSomeFiles"
+    AfterTargets="Build"
+    Inputs=""
+    Outputs="">
+    <ZipDirectory
+      SourceDirectory="$(MSBuildProjectDirectory)\ZipSourceFiles"
+      DestinationFile="$(OutputPath)\4.zip"
+      Overwrite="true" />
+  </Target>
+
+  <!-- 
+    Run command lines:
+    > msbuild /t:Restore
+    > msbuild /bl
+
+    Now run a second time
+    > msbuild /bl
+    
+    Look at the results very carefully. What happened when we ran a second time? Why is this bad?
+    How can we improve our custom target to prevent this?
+
+    Did we make a good choice for the zip destination path?
+
+    Did we make a good choice for AfterTargets?
+  -->
+
+</Project>
+

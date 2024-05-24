@@ -1,0 +1,15 @@
+In 4.csproj:
+
+  <Target Name="_GetZipOutputItems"
+      DependsOnTargets="ZipSomeFiles"
+      BeforeTargets="GetCopyToOutputDirectoryItems">
+
+    <ItemGroup>
+      <!-- AssignTargetPaths converts Content to ContentWithTargetPath. If this target runs after AssignTargetPaths, then it's too late to declare Content. -->
+      <ContentWithTargetPath
+        Include="$(OutputPath)\4.zip"
+        CopyToOutputDirectory="PreserveNewest"
+        TargetPath="4.zip" />
+    </ItemGroup>
+
+  </Target>

@@ -21,6 +21,7 @@
     Important targets you should know:
       Clean                               - deletes output
       Build                               - depends on the following
+       -> PrepareForBuild                 - convenient extension point that executes before most other targets
        -> ResolveProjectReferences        - ensures that project references are built
        -> CoreCompile                     - runs the compiler
        -> GetCopyToOutputDirectoryItems   - determines what files to copy to output

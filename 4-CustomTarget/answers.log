@@ -1,0 +1,15 @@
+
+  <ItemGroup>
+    <ZipSource Include="$(MSBuildProjectDirectory)\ZipSourceFiles\*" />
+  </ItemGroup>
+
+  <Target Name="ZipSomeFiles"
+    AfterTargets="Build"
+    Inputs="@(ZipSource)"
+    Outputs="$(OutputPath)\4.zip">
+    <ZipDirectory
+      SourceDirectory="$(MSBuildProjectDirectory)\ZipSourceFiles"
+      DestinationFile="$(OutputPath)\4.zip"
+      Overwrite="true" />
+  </Target>
+  
